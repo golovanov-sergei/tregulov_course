@@ -9,6 +9,6 @@
 
     <bean id="myPet" class="com.tregulov.spring.introduction.Cat"></bean>
     <bean id="myPerson" class="com.tregulov.spring.introduction.Person">
-        <constructor-arg ref="myPet"/>
+        <property name="pet" ref="myPet"/>
     </bean>
 </beans>
