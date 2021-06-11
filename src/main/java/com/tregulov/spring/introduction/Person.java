@@ -1,5 +1,10 @@
 package com.tregulov.spring.introduction;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("personBean")
+
 public class Person {
     private Pet pet;
     private String surname;
@@ -21,20 +26,22 @@ public class Person {
         this.age = age;
     }
 
-    public Person() {
-        System.out.println("Clear person created!");
-    }
+//    public Person() {
+//        System.out.println("Clear person created!");
+//    }
 
     public void setPet(Pet pet) {
         System.out.println("Person set pet");
         this.pet = pet;
     }
 
+    @Autowired
     public Person(Pet pet) {
         System.out.println("Person with pet created!");
         this.pet = pet;
     }
-    public void callPet(){
+
+    public void callPet() {
         System.out.println("Pet calling");
         pet.say();
     }
