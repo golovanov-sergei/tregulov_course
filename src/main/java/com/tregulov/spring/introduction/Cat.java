@@ -1,5 +1,9 @@
 package com.tregulov.spring.introduction;
 
+import org.springframework.stereotype.Component;
+
+@Component("catBean")
+
 public class Cat implements Pet{
 //    private String name;
 
