@@ -13,9 +13,9 @@ public class Person {
     @Qualifier("catBean")
 */
     private Pet pet;
-    @Value("${person.surname}")
+//    @Value("${person.surname}")
     private String surname;
-    @Value("${person.age}")
+//    @Value("${person.age}")
     private int age;
 
     public String getSurname() {
@@ -38,18 +38,19 @@ public class Person {
         System.out.println("Clear person created!");
     }
 
+//    @Autowired
     public void setPet(Pet pet) {
         System.out.println("Person set pet");
         this.pet = pet;
     }
 
-/*
+
     @Autowired
-    public Person(@Qualifier("dogBean") Pet pet) {
+    public Person(@Qualifier("catBean") Pet pet) {
         System.out.println("Person with pet created!");
         this.pet = pet;
     }
-*/
+
 
     public void callPet() {
         System.out.println("Pet calling");

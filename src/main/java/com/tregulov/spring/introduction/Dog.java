@@ -13,15 +13,15 @@ public class Dog implements Pet{
         System.out.println("Dog created!");
     }
 
-    @PostConstruct
-    public void init(){
-        System.out.println("Dog init method");
-    }
-
-    @PreDestroy
-    public void destroy(){
-        System.out.println("Dog destroy method");
-    }
+//    @PostConstruct
+//    public void init(){
+//        System.out.println("Dog init method");
+//    }
+//
+//    @PreDestroy
+//    public void destroy(){
+//        System.out.println("Dog destroy method");
+//    }
     @Override
     public void say(){
         System.out.println("Dog say");
