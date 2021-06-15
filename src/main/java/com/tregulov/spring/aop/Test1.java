@@ -6,9 +6,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Test1 {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
-        Library library = context.getBean("libraryBean", Library.class);
+        UniLibrary library = context.getBean("uniLibrary", UniLibrary.class);
         library.getBook();
-
+        String s = library.returnBook();
+        library.getMagazine();
+        SchoolLibrary schoolLibrary = context.getBean("schoolLibrary", SchoolLibrary.class);
+        schoolLibrary.getBook();
         context.close();
     }
 }
