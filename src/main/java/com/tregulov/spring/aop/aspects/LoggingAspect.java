@@ -1,8 +1,10 @@
 package com.tregulov.spring.aop.aspects;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -69,10 +71,18 @@ public class LoggingAspect {
 
 
 //    @Before("execution(* get*(..))")
-    @Before("com.tregulov.spring.aop.aspects.MyPointcuts.allGetMethods()")
+    @Before("com.tregulov.spring.aop.aspects.MyPointcuts.allAddMethods()")
 //    @Before("execution(public void com.tregulov.spring.aop.UniLibrary.getBook())")
-    public void beforeGetLoggingAdvice() {
+    public void beforeAddLoggingAdvice(JoinPoint joinPoint) {
+
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        System.out.println("MethodSignature = "+methodSignature);
+        System.out.println("methodSignature.getMethod() = "+methodSignature.getMethod());
+        System.out.println("methodSignature.getReturnType() = "+methodSignature.getReturnType());
+
         System.out.println("beforeGetLoggingAdvice: попытка выдать книгу/журнал");
+        System.out.println("--------------------------------------------");
+
     }
 
 

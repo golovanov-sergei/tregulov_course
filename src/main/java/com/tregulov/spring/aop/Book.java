@@ -5,14 +5,24 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Book {
-    @Value("War and Peace 2")
+    @Value("War and Peace")
     private String name;
+
+    @Value("L.Tolstoy")
+    private String author;
+
+    @Value("1869")
+    private int yearOfPublication;
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getYearOfPublication() {
+        return yearOfPublication;
+    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
