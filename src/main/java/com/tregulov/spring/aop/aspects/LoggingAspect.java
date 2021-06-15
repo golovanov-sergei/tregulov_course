@@ -3,11 +3,14 @@ package com.tregulov.spring.aop.aspects;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAndSecurityAspect {
+@Order(0)
+public class LoggingAspect {
+/*
 
     @Pointcut("execution(* com.tregulov.spring.aop.UniLibrary.*(..))")
     private void allMethodsFromUniLibrary() {
@@ -36,6 +39,7 @@ public class LoggingAndSecurityAspect {
     public void beforeAllMethodsExceptReturnMagazineFromUniLibraryAdvice() {
         System.out.println("beforeallMethodsExceptReturnMagazineFromUniLibraryAdvice: writing log#3");
     }
+*/
 
   /*  @Pointcut("execution(* com.tregulov.spring.aop.UniLibrary.get*(..))")
     private void allGetMethodsFromUniLibrary() {
@@ -62,27 +66,19 @@ public class LoggingAndSecurityAspect {
     public void beforeGetAndReturnLoggingAdvice(){
         System.out.println("beforeGetAndReturnLoggingAdvice: writing log#3");
     }*/
-/*
-    @Pointcut("execution(* get*(..))")
-    private void allGetMethods(){}
+
 
 //    @Before("execution(* get*(..))")
-    @Before("allGetMethods()")
+    @Before("com.tregulov.spring.aop.aspects.MyPointcuts.allGetMethods()")
 //    @Before("execution(public void com.tregulov.spring.aop.UniLibrary.getBook())")
     public void beforeGetLoggingAdvice() {
         System.out.println("beforeGetLoggingAdvice: попытка выдать книгу/журнал");
     }
 
-//    @Before("execution(* get*(..))")
-    @Before("allGetMethods()")
-    public void beforeGetSecurityAdvice(){
-        System.out.println("beforeGetSecurityAdvice: проверка прав на выдачу кинги/журнала");
 
-    }
 
-    @Before("execution(* returnBook())")
-    public void beforeReturnBookAdvice() {
-        System.out.println("beforeReturnBookAdvice: попытка принять книгу.");
-    }
-*/
+//    @Before("execution(* returnBook())")
+//    public void beforeReturnBookAdvice() {
+//        System.out.println("beforeReturnBookAdvice: попытка принять книгу.");
+//    }
 }

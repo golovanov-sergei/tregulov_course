@@ -10,10 +10,10 @@ public class Test1 {
 
         library.getBook();
         library.getMagazine();
-        library.returnBook();
-        library.returnMagazine();
-        library.addBook();
-        library.addMagazine();
+//        library.returnBook();
+//        library.returnMagazine();
+//        library.addBook();
+//        library.addMagazine();
 
         context.close();
     }
