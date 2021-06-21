@@ -19,6 +19,8 @@ public class University {
     }
 
     public List<Student> getStudents(){
+        System.out.println("Начало работы getStudents()");
+        System.out.println(students.get(3)); //Исключение
         System.out.println("Работает getStudents()");
         System.out.println(students);
         return students;
