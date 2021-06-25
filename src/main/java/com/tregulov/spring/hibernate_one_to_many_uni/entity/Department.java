@@ -1,4 +1,4 @@
-package com.tregulov.spring.hibernate_one_to_many_bi.entity;
+package com.tregulov.spring.hibernate_one_to_many_uni.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,8 +17,9 @@ public class Department {
     private int maxSalary;
     @Column(name = "min_salary")
     private int minSalary;
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE}, mappedBy = "department")
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+//    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE}, mappedBy = "department")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "department_id")
     private List<Employee> emps;
 
     public Department() {
@@ -35,7 +36,6 @@ public class Department {
             emps = new ArrayList<>();
         }
         emps.add(employee);
-        employee.setDepartment(this);
     }
 
     @Override
